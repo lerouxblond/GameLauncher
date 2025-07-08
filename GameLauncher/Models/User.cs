@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameLauncher.Models
 {
-    internal class User
+    public class User
     {
+
     }
 }
