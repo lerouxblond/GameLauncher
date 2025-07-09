@@ -17,7 +17,10 @@ namespace GameLauncher.Models
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Icon { get; set; } = "game_default.png";
-        [ForeignKey(nameof(Genre.Id))]
+
+        public string Executable { get; set; } = string.Empty;
+
+        [ForeignKey(nameof(Genre))]
         public int GenreID { get; set; }
 
         // Game out date
