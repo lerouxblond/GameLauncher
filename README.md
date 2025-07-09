@@ -60,7 +60,7 @@ GameLauncher/
 
 ## Schéma de la base de données
 
-![Diagramme ER](doc/GameLauncherDBSchem.png)
+![Diagramme ER](Doc/GameLauncherDBSchem.png)
 
 ````
 ---
