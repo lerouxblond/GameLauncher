@@ -58,7 +58,11 @@ GameLauncher/
 ├── appsettings.json     # Configuration EF / Connexion BDD
 └── GameLauncher.sln     # Solution principale
 
-````
+```
+
+## Schéma de la base de données
+
+![Diagramme ER](doc/GameLauncherDBSchem.png)
 
 ---
 
