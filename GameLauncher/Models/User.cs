@@ -13,6 +13,7 @@ namespace GameLauncher.Models
         // Primary Key for db purpose
         [Key]
         public int Id { get; set; }
+
         public string Username { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
@@ -20,24 +21,26 @@ namespace GameLauncher.Models
 
         // Creation and Lasted edit Date
         public DateTime UserCreated { get; set; } = DateTime.Now;
-        public DateTime LatestUserModified { get; set; }
+        public DateTime? LastEditAt { get; set; }
 
         // List of games added, owned or not by the user added to their Shelf 
-        public List<Game> GameList { get; set; } = [];
-        public bool AdminPermition { get; set; }
+        public List<LibraryEntry> LibraryEntries { get; set; } = [];
+        public List<Note> Notes { get; set; } = [];
+
+        public bool AdminPermission { get; set; }
+        public bool PrivateAccount { get; set; } = false;
 
         #endregion
         // Empty Constructor
         public User() { }
 
         // Register Constructor for DB insertion and Register Auth
-        public User(string username, string email, string password, bool adminPermition = false)
+        public User(string username, string email, string password, bool adminPermission = false)
         {
             Username = username;
             Email = email;
             Password = password;
-            AdminPermition = adminPermition;
-            LatestUserModified = DateTime.Now;
+            AdminPermission = adminPermission;
         }
     }
 }

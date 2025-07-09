@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,27 +13,26 @@ namespace GameLauncher.Models
         #region Game Properties
         [Key]
         public int Id { get; set; }
-        public string GameName { get; set; } = string.Empty;
-        public string GameDescription { get; set; } = string.Empty;
-        public string GameProfilePicture { get; set; } = "game_default.png";
 
-        // Game added date
-        public DateTime GameAddedDate { get; set; } = DateTime.Now;
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Icon { get; set; } = "game_default.png";
+        [ForeignKey(nameof(Genre.Id))]
+        public int GenreID { get; set; }
 
-        public bool GameOwned { get; set; }
-        public string GameLaunchPath { get; set; } = string.Empty;
-
-        public List<Note> GameNoteList { get; set; } = [];
+        // Game out date
+        public DateTime OutDate { get; set; } = DateTime.Now;
 
         #endregion
         // Empty Constructor
         public Game() { }
 
         // Creation Contructor for DB insertion and Shelf Game Creation
-        public Game(string gamename, string gamedescription)
+        public Game(string gamename, string gamedescription, int genreId)
         {
-            GameName = gamename;
-            GameDescription = gamedescription;
+            Name = gamename;
+            Description = gamedescription;
+            GenreID = genreId;
         }
     }
 }
