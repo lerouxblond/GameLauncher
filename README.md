@@ -1,4 +1,3 @@
-Voici un modèle de `README.md` clair, structuré et adapté à ton projet de **Game Launcher** :
 
 ---
 
@@ -44,7 +43,6 @@ GameLauncher est une application bureau permettant à un utilisateur de :
 
 ## 🗃️ Structure du projet
 
-```
 
 GameLauncher/
 │
@@ -64,6 +62,7 @@ GameLauncher/
 
 ![Diagramme ER](doc/GameLauncherDBSchem.png)
 
+````
 ---
 
 ## ⚙️ Configuration requise
