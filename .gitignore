@@ -62,3 +62,7 @@ nunit-*.xml
 
 # Visual Studio Code
 .history/
+
+# Ignore SQLite database file
+*.db
+

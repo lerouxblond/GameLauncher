@@ -14,6 +14,8 @@ namespace GameLauncher.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(100)]
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Icon { get; set; } = "game_default.png";
@@ -22,6 +24,14 @@ namespace GameLauncher.Models
 
         [ForeignKey(nameof(Genre))]
         public int GenreID { get; set; }
+        public Genre Genre { get; set; } = null!;
+
+        public List<GamePlatform> GamePlatforms { get; set; } = [];
+        public List<GameStoreLink> GameStoreLinks { get; set; } = [];
+
+        public List<Note> Notes { get; set; } = [];
+
+        public List<LibraryEntry> LibraryEntries { get; set; } = [];
 
         // Game out date
         public DateTime OutDate { get; set; } = DateTime.Now;
@@ -31,11 +41,12 @@ namespace GameLauncher.Models
         public Game() { }
 
         // Creation Contructor for DB insertion and Shelf Game Creation
-        public Game(string gamename, string gamedescription, int genreId)
+        public Game(string gamename, string gamedescription, DateTime outDate ,int genreId)
         {
             Name = gamename;
             Description = gamedescription;
             GenreID = genreId;
+            OutDate = outDate;
         }
     }
 }
