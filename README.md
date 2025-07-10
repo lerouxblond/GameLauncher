@@ -30,14 +30,28 @@ GameLauncher est une application bureau permettant à un utilisateur de :
 
 ## 🔧 Fonctionnalités actuelles
 
-- [x] Connexion / Inscription utilisateur
-- [x] Hashage sécurisé du mot de passe
-- [x] Photo de profil par défaut
-- [x] Base de données locale SQLite
-- [ ] Bibliothèque de jeux personnalisable
-- [ ] Catégorisation, statut, notes privées/publiques
-- [ ] Ajout de guides / forums liés à un jeu 
-- [ ] Statistiques globales ou sociales
+- [x] Modélisation complète de la base de données (EF Core)
+- [x] Création des classes C# des modèles : `User`, `Game`, `Note`, `Genre`, `LibraryEntry`, `GameStoreLink`, `Platform`, `GamePlatform`
+- [x] Setup de `DbContext`, `DbContextFactory` et configuration SQLite
+- [x] Fichier `appsettings.json` + migration initiale
+- [x] Relations entre entités fonctionnelles et testées
+- [x] Génération de la base `.db` avec `dotnet ef database update`
+- [x] README à jour, `.gitignore` propre
+
+---
+
+## ⌛ Fonctionnalités à venir (prochaine étape)
+
+🎨 **Phase UI / maquettage simple :**
+- [ ] Création des formulaires de base sans logique backend :
+  - LoginForm
+  - RegisterForm
+  - MainMenu / HomeView
+  - GameLibraryView
+  - GameDetailsView
+- [ ] Navigation entre les écrans (boutons statiques)
+- [ ] Premier aperçu visuel cohérent avec le projet
+- [ ] Structure WinForms bien compartimentée (UserControl, etc.)
 
 ---
 
@@ -108,10 +122,17 @@ GameLauncher/
 
 ## 📦 À venir
 
-* Authentification persistante (session/remember me)
-* Importation manuel des jeux
-* Lancement de jeux directement depuis l’app
-* Rating, notes, forum et bibliothèque personnelle
+ UI fonctionnelle de connexion et inscription
+
+ Connexion back–front via services
+
+ Affichage des jeux de la DB
+
+ Ajout/édition de notes utilisateurs
+
+ Lancement d’un jeu via l’app
+
+ Stats de jeu + paramètres utilisateur
 
 ---
 

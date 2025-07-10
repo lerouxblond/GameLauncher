@@ -25,4 +25,3 @@ namespace GameLauncher.Data
         }
     }
 }
-x

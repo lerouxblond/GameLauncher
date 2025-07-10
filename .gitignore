@@ -65,4 +65,5 @@ nunit-*.xml
 
 # Ignore SQLite database file
 *.db
-
+*.db-wal
+*.db-shm
