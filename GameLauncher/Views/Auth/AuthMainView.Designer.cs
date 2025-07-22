@@ -41,7 +41,7 @@
             pagePanel.Dock = DockStyle.Fill;
             pagePanel.Location = new Point(0, 0);
             pagePanel.Name = "pagePanel";
-            pagePanel.Size = new Size(1184, 761);
+            pagePanel.Size = new Size(1200, 800);
             pagePanel.TabIndex = 0;
             // 
             // loginControlForm
@@ -49,7 +49,7 @@
             loginControlForm.Dock = DockStyle.Fill;
             loginControlForm.Location = new Point(0, 0);
             loginControlForm.Name = "loginControlForm";
-            loginControlForm.Size = new Size(1184, 761);
+            loginControlForm.Size = new Size(1200, 800);
             loginControlForm.TabIndex = 1;
             // 
             // registerControlForm
@@ -57,14 +57,14 @@
             registerControlForm.Dock = DockStyle.Fill;
             registerControlForm.Location = new Point(0, 0);
             registerControlForm.Name = "registerControlForm";
-            registerControlForm.Size = new Size(1184, 761);
+            registerControlForm.Size = new Size(1200, 800);
             registerControlForm.TabIndex = 0;
             // 
             // AuthMainView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 761);
+            ClientSize = new Size(1200, 800);
             Controls.Add(pagePanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AuthMainView";

@@ -38,19 +38,20 @@
             UsernameFieldLayout = new TableLayoutPanel();
             UsernameInputField = new TextBox();
             UsernameInputLabel = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            HelpPanel = new TableLayoutPanel();
             ForgotPasswordLinkLabel = new LinkLabel();
             StaySignedCheckBox = new CheckBox();
-            tableLayoutPanel2 = new TableLayoutPanel();
+            buttonLayoutPanel = new TableLayoutPanel();
             LoginButton = new Button();
             RegisterLink = new LinkLabel();
+            CloseBTN = new Button();
             ((System.ComponentModel.ISupportInitialize)backgroundPicture).BeginInit();
             FormGroup.SuspendLayout();
             FieldLayout.SuspendLayout();
             PasswordFieldLayout.SuspendLayout();
             UsernameFieldLayout.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            HelpPanel.SuspendLayout();
+            buttonLayoutPanel.SuspendLayout();
             SuspendLayout();
             // 
             // backgroundPicture
@@ -87,8 +88,8 @@
             FieldLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             FieldLayout.Controls.Add(PasswordFieldLayout, 0, 1);
             FieldLayout.Controls.Add(UsernameFieldLayout, 0, 0);
-            FieldLayout.Controls.Add(tableLayoutPanel1, 0, 2);
-            FieldLayout.Controls.Add(tableLayoutPanel2, 0, 3);
+            FieldLayout.Controls.Add(HelpPanel, 0, 2);
+            FieldLayout.Controls.Add(buttonLayoutPanel, 0, 3);
             FieldLayout.Location = new Point(31, 16);
             FieldLayout.Name = "FieldLayout";
             FieldLayout.Padding = new Padding(5);
@@ -117,7 +118,7 @@
             PasswordFieldLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 64.28571F));
             PasswordFieldLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             PasswordFieldLayout.Size = new Size(216, 63);
-            PasswordFieldLayout.TabIndex = 3;
+            PasswordFieldLayout.TabIndex = 2;
             // 
             // PasswordInput
             // 
@@ -156,7 +157,7 @@
             UsernameFieldLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 64.28571F));
             UsernameFieldLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             UsernameFieldLayout.Size = new Size(216, 63);
-            UsernameFieldLayout.TabIndex = 2;
+            UsernameFieldLayout.TabIndex = 1;
             // 
             // UsernameInputField
             // 
@@ -178,21 +179,21 @@
             UsernameInputLabel.Text = "Username";
             UsernameInputLabel.TextAlign = ContentAlignment.BottomCenter;
             // 
-            // tableLayoutPanel1
+            // HelpPanel
             // 
-            tableLayoutPanel1.AutoSize = true;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(ForgotPasswordLinkLabel, 0, 1);
-            tableLayoutPanel1.Controls.Add(StaySignedCheckBox, 0, 0);
-            tableLayoutPanel1.Location = new Point(8, 155);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(5);
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(120, 60);
-            tableLayoutPanel1.TabIndex = 4;
+            HelpPanel.AutoSize = true;
+            HelpPanel.ColumnCount = 1;
+            HelpPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            HelpPanel.Controls.Add(ForgotPasswordLinkLabel, 0, 1);
+            HelpPanel.Controls.Add(StaySignedCheckBox, 0, 0);
+            HelpPanel.Location = new Point(8, 155);
+            HelpPanel.Name = "HelpPanel";
+            HelpPanel.Padding = new Padding(5);
+            HelpPanel.RowCount = 2;
+            HelpPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            HelpPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            HelpPanel.Size = new Size(120, 60);
+            HelpPanel.TabIndex = 4;
             // 
             // ForgotPasswordLinkLabel
             // 
@@ -201,7 +202,7 @@
             ForgotPasswordLinkLabel.Margin = new Padding(3, 5, 3, 0);
             ForgotPasswordLinkLabel.Name = "ForgotPasswordLinkLabel";
             ForgotPasswordLinkLabel.Size = new Size(104, 15);
-            ForgotPasswordLinkLabel.TabIndex = 0;
+            ForgotPasswordLinkLabel.TabIndex = 2;
             ForgotPasswordLinkLabel.TabStop = true;
             ForgotPasswordLinkLabel.Text = "Forgot password?";
             ForgotPasswordLinkLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -217,19 +218,19 @@
             StaySignedCheckBox.Text = "Stay signed ?";
             StaySignedCheckBox.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel2
+            // buttonLayoutPanel
             // 
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.BackColor = Color.Transparent;
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(LoginButton, 0, 0);
-            tableLayoutPanel2.Location = new Point(8, 224);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(216, 46);
-            tableLayoutPanel2.TabIndex = 5;
+            buttonLayoutPanel.AutoSize = true;
+            buttonLayoutPanel.BackColor = Color.Transparent;
+            buttonLayoutPanel.ColumnCount = 1;
+            buttonLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            buttonLayoutPanel.Controls.Add(LoginButton, 0, 0);
+            buttonLayoutPanel.Location = new Point(8, 224);
+            buttonLayoutPanel.Name = "buttonLayoutPanel";
+            buttonLayoutPanel.RowCount = 1;
+            buttonLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            buttonLayoutPanel.Size = new Size(216, 46);
+            buttonLayoutPanel.TabIndex = 4;
             // 
             // LoginButton
             // 
@@ -238,7 +239,7 @@
             LoginButton.Location = new Point(3, 3);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(210, 40);
-            LoginButton.TabIndex = 0;
+            LoginButton.TabIndex = 4;
             LoginButton.Text = "LOGIN";
             LoginButton.UseVisualStyleBackColor = false;
             // 
@@ -248,15 +249,29 @@
             RegisterLink.Location = new Point(822, 537);
             RegisterLink.Name = "RegisterLink";
             RegisterLink.Size = new Size(81, 15);
-            RegisterLink.TabIndex = 3;
+            RegisterLink.TabIndex = 5;
             RegisterLink.TabStop = true;
             RegisterLink.Text = "Go to Register";
             RegisterLink.LinkClicked += RegisterLink_LinkClicked;
+            // 
+            // CloseBTN
+            // 
+            CloseBTN.AutoSize = true;
+            CloseBTN.BackColor = Color.White;
+            CloseBTN.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            CloseBTN.Location = new Point(1122, 3);
+            CloseBTN.Name = "CloseBTN";
+            CloseBTN.Size = new Size(75, 31);
+            CloseBTN.TabIndex = 6;
+            CloseBTN.Text = "Close";
+            CloseBTN.UseVisualStyleBackColor = false;
+            CloseBTN.Click += CloseBTN_Click;
             // 
             // LoginControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(CloseBTN);
             Controls.Add(RegisterLink);
             Controls.Add(FormGroup);
             Controls.Add(backgroundPicture);
@@ -271,9 +286,9 @@
             PasswordFieldLayout.PerformLayout();
             UsernameFieldLayout.ResumeLayout(false);
             UsernameFieldLayout.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
+            HelpPanel.ResumeLayout(false);
+            HelpPanel.PerformLayout();
+            buttonLayoutPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -289,11 +304,12 @@
         private TableLayoutPanel UsernameFieldLayout;
         private TextBox UsernameInputField;
         private Label UsernameInputLabel;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel HelpPanel;
         private LinkLabel ForgotPasswordLinkLabel;
         private CheckBox StaySignedCheckBox;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel buttonLayoutPanel;
         private Button LoginButton;
         private LinkLabel RegisterLink;
+        private Button CloseBTN;
     }
 }

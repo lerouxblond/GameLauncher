@@ -24,6 +24,9 @@ namespace GameLauncher.Views.Auth
         {
             loginControlForm.SwitchToRegister += SwitchToRegister;
             registerControlForm.SwitchToLogin += SwitchToLogin;
+            loginControlForm.CloseAuthPage += CloseAuthPage;
+            registerControlForm.CloseAuthPage += CloseAuthPage;
+            ShowLogin();
         }
 
         private void ShowLogin()
@@ -40,5 +43,8 @@ namespace GameLauncher.Views.Auth
 
         private void SwitchToRegister(object? sender, EventArgs e) => ShowRegister();
         private void SwitchToLogin(object? sender, EventArgs e) => ShowLogin();
+
+        private void CloseAuthPage(object? sender, EventArgs e) => this.Close();
+
     }
 }

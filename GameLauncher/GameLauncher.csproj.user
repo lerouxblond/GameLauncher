@@ -10,12 +10,6 @@
     <Compile Update="Views\Auth\Control\RegisterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\Auth\Form\LoginView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\Auth\Form\RegisterView.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\MainView.cs">
       <SubType>Form</SubType>
     </Compile>

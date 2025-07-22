@@ -12,7 +12,7 @@ namespace GameLauncher.Views.Auth.Control
 {
     public partial class LoginControl : UserControl
     {
-        public event EventHandler? SwitchToRegister;
+        public event EventHandler? SwitchToRegister, CloseAuthPage;
 
         public LoginControl()
         {
@@ -22,6 +22,11 @@ namespace GameLauncher.Views.Auth.Control
         private void RegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SwitchToRegister?.Invoke(this, e);
+        }
+
+        private void CloseBTN_Click(object sender, EventArgs e)
+        {
+            CloseAuthPage?.Invoke(this, e);
         }
     }
 }

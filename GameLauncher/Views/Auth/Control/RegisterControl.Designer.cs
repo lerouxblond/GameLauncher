@@ -44,6 +44,7 @@
             PasswordInput = new TextBox();
             PasswordLabel = new Label();
             LoginLink = new LinkLabel();
+            CloseBTN = new Button();
             ((System.ComponentModel.ISupportInitialize)BackgroundPicture).BeginInit();
             FormGroup.SuspendLayout();
             FieldLayout.SuspendLayout();
@@ -117,7 +118,7 @@
             EmailLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 64.28571F));
             EmailLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             EmailLayout.Size = new Size(216, 63);
-            EmailLayout.TabIndex = 6;
+            EmailLayout.TabIndex = 2;
             // 
             // EmailFieldInput
             // 
@@ -156,7 +157,7 @@
             UsernameFieldLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 64.28571F));
             UsernameFieldLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             UsernameFieldLayout.Size = new Size(216, 63);
-            UsernameFieldLayout.TabIndex = 2;
+            UsernameFieldLayout.TabIndex = 1;
             // 
             // UsernameInputField
             // 
@@ -199,7 +200,7 @@
             RegisterButton.Location = new Point(3, 3);
             RegisterButton.Name = "RegisterButton";
             RegisterButton.Size = new Size(210, 40);
-            RegisterButton.TabIndex = 0;
+            RegisterButton.TabIndex = 4;
             RegisterButton.Text = "REGISTER";
             RegisterButton.UseVisualStyleBackColor = false;
             // 
@@ -248,15 +249,29 @@
             LoginLink.Location = new Point(311, 537);
             LoginLink.Name = "LoginLink";
             LoginLink.Size = new Size(69, 15);
-            LoginLink.TabIndex = 4;
+            LoginLink.TabIndex = 5;
             LoginLink.TabStop = true;
             LoginLink.Text = "Go to Login";
             LoginLink.LinkClicked += LoginLink_LinkClicked;
+            // 
+            // CloseBTN
+            // 
+            CloseBTN.AutoSize = true;
+            CloseBTN.BackColor = Color.White;
+            CloseBTN.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            CloseBTN.Location = new Point(1122, 3);
+            CloseBTN.Name = "CloseBTN";
+            CloseBTN.Size = new Size(75, 31);
+            CloseBTN.TabIndex = 6;
+            CloseBTN.Text = "Close";
+            CloseBTN.UseVisualStyleBackColor = false;
+            CloseBTN.Click += CloseBTN_Click;
             // 
             // RegisterControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(CloseBTN);
             Controls.Add(LoginLink);
             Controls.Add(FormGroup);
             Controls.Add(BackgroundPicture);
@@ -295,5 +310,6 @@
         private TextBox PasswordInput;
         private Label PasswordLabel;
         private LinkLabel LoginLink;
+        private Button CloseBTN;
     }
 }
