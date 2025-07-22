@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLauncher.Services.Auth
+namespace GameLauncher.Services
 {
-    internal class RegisterServices
+    public class SessionService
     {
     }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLauncher.Controllers.Auth
+namespace GameLauncher.Data
 {
-    internal class LoginController
+    public interface IAppDbContextFactory
     {
+        AppDbContext CreateDbContext();
     }
 }

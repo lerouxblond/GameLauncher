@@ -9,19 +9,22 @@ using System.Threading.Tasks;
 
 namespace GameLauncher.Data
 {
-    public class DbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
+    public class DbContextFactory : IAppDbContextFactory
     {
-        public AppDbContext CreateDbContext(string[] args)
+        private readonly IConfiguration _configuration;
+
+        public DbContextFactory(IConfiguration configuration)
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlite(configuration.GetConnectionString("DefaultConnection"));
-
-            return new AppDbContext(configuration);
+            _configuration = configuration;
         }
+
+        public AppDbContext CreateDbContext()
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+            optionsBuilder.UseSqlite(_configuration.GetConnectionString("DefaultConnection"));
+
+            return new AppDbContext(_configuration);
+        }
+
     }
 }
