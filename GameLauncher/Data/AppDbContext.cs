@@ -16,11 +16,12 @@ namespace GameLauncher.Data
         public AppDbContext(IConfiguration configuration)
         {
             _configuration = configuration;
+            Database.EnsureCreated();
         }
 
 
         #region Tables
-        public DbSet<User> Users { get; set; }
+        public DbSet<Users> Users { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<LibraryEntry> LibraryEntries { get; set; }

@@ -203,6 +203,7 @@
             RegisterButton.TabIndex = 4;
             RegisterButton.Text = "REGISTER";
             RegisterButton.UseVisualStyleBackColor = false;
+            RegisterButton.Click += RegisterButton_Click;
             // 
             // PasswordFieldLayout
             // 

@@ -15,7 +15,7 @@ namespace GameLauncher.Models
 
         [ForeignKey(nameof(User))]
         public int UserID { get; set; }
-        public User User { get; set; } = null!;
+        public Users User { get; set; } = null!;
 
         [ForeignKey(nameof(Game))]
         public int GameID { get; set; }

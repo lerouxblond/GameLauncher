@@ -1,4 +1,6 @@
-﻿namespace GameLauncher.Views.Auth
+﻿using GameLauncher.Controllers.Auth;
+
+namespace GameLauncher.Views.Auth
 {
     partial class AuthMainView
     {
@@ -26,11 +28,11 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(AuthController authController)
         {
             pagePanel = new Panel();
-            loginControlForm = new GameLauncher.Views.Auth.Control.LoginControl();
-            registerControlForm = new GameLauncher.Views.Auth.Control.RegisterControl();
+            loginControlForm = new GameLauncher.Views.Auth.Control.LoginControl(authController);
+            registerControlForm = new GameLauncher.Views.Auth.Control.RegisterControl(authController);
             pagePanel.SuspendLayout();
             SuspendLayout();
             // 

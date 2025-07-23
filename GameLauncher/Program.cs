@@ -1,7 +1,10 @@
+using GameLauncher.Controllers.Auth;
 using GameLauncher.Data;
 using GameLauncher.Helpers;
+using GameLauncher.Services;
 using GameLauncher.Services.Auth;
 using GameLauncher.Views.Auth;
+using GameLauncher.Views.Auth.Control;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,19 +30,38 @@ static class Program
                 // Config de EF Core
                 services.AddDbContext<AppDbContext>(options =>
                     options.UseSqlite(context.Configuration.GetConnectionString("DefaultConnection")));
-
+                
+                
                 // Services
                 services.AddScoped<IAppDbContextFactory, DbContextFactory>();
                 services.AddScoped<AuthService>();
+                services.AddScoped<AuthController>();
+                services.AddScoped<SessionService>();
 
-                // Lancer l'app sur AuthMainView
+                // view & forms
                 services.AddTransient<AuthMainView>();
+                services.AddTransient<MainView>();
+
+                // UserControls
+                services.AddTransient<LoginControl>();
+                services.AddTransient<RegisterControl>();
+
             });
 
         var host = builder.Build();
+        
 
         ApplicationConfiguration.Initialize();
-        var mainForm = host.Services.GetRequiredService<AuthMainView>();
+
+        var sessionService = host.Services.GetRequiredService<SessionService>();
+        var session = sessionService.LoadSession();
+
+        Form mainForm;
+        if (session != null && session.StaySignedIn)
+            mainForm = host.Services.GetRequiredService<MainView>();
+        else
+            mainForm = host.Services.GetRequiredService<AuthMainView>();
+
         Application.Run(mainForm);
     }    
 }
