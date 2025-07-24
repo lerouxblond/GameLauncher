@@ -27,13 +27,18 @@ static class Program
             })
             .ConfigureServices((context, services) =>
             {
+                var relativePath = context.Configuration["AppSettings:DatabaseRelativePath"];
+                var absolutePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath!);
+                var connectionString = $"Data Source={absolutePath}";
+                Console.WriteLine($"DB folder verified: {connectionString}");
+
+
+
                 // Config de EF Core
                 services.AddDbContext<AppDbContext>(options =>
-                    options.UseSqlite(context.Configuration.GetConnectionString("DefaultConnection")));
-                
-                
+                    options.UseSqlite(connectionString));
+
                 // Services
-                services.AddScoped<IAppDbContextFactory, DbContextFactory>();
                 services.AddScoped<AuthService>();
                 services.AddScoped<AuthController>();
                 services.AddScoped<SessionService>();

@@ -9,22 +9,25 @@ using System.Threading.Tasks;
 
 namespace GameLauncher.Data
 {
-    public class DbContextFactory : IAppDbContextFactory
+    public class DbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
-        private readonly IConfiguration _configuration;
-
-        public DbContextFactory(IConfiguration configuration)
+        public AppDbContext CreateDbContext(string[] args)
         {
-            _configuration = configuration;
-        }
+            IConfigurationRoot config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
 
-        public AppDbContext CreateDbContext()
-        {
+            var relativePath = config["AppSettings:DatabaseRelativePath"];
+            var absolutePath = Path.Combine(Directory.GetCurrentDirectory(), relativePath!);
+            var connectionString = $"Data Source={absolutePath}";
+
+            //Directory.CreateDirectory(Path.GetDirectoryName(absolutePath)!);
+
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlite(_configuration.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseSqlite(connectionString);
 
-            return new AppDbContext(_configuration);
+            return new AppDbContext(config, optionsBuilder.Options);
         }
-
     }
 }
