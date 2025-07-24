@@ -31,7 +31,7 @@ namespace GameLauncher.Views.Auth
             loginControlForm.CloseAuthPage += CloseAuthPage;
             registerControlForm.CloseAuthPage += CloseAuthPage;
             registerControlForm.UserRegister += SwitchToLogin;
-            loginControlForm.UserLogged += CloseAuthPage;
+            loginControlForm.UserLogged += HideAuthPage;
             ShowLogin();
         }
 
@@ -52,7 +52,7 @@ namespace GameLauncher.Views.Auth
 
         
         private void CloseAuthPage(object? sender, EventArgs e) => Close();
-
+        private void HideAuthPage(object? sender, EventArgs e) => Hide();
 
     }
 }
