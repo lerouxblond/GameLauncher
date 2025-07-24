@@ -44,8 +44,8 @@ static class Program
                 services.AddScoped<SessionService>();
 
                 // view & forms
-                services.AddTransient<AuthMainView>();
-                services.AddTransient<MainView>();
+                services.AddSingleton<AuthMainView>();
+                services.AddSingleton<MainView>();
 
                 // UserControls
                 services.AddTransient<LoginControl>();

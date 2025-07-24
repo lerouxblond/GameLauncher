@@ -1,5 +1,6 @@
 ﻿using GameLauncher.Controllers.Auth;
 using GameLauncher.Views.Auth.Control;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,11 @@ namespace GameLauncher.Views.Auth
     public partial class AuthMainView : Form
     {
         private readonly AuthController _authController;
+        private readonly IServiceProvider _provider;
 
-        public AuthMainView(AuthController authController)
+        public AuthMainView(AuthController authController, IServiceProvider provider)
         {
+            _provider = provider;
             _authController = authController;
             InitializeComponent(authController);
 
@@ -50,9 +53,9 @@ namespace GameLauncher.Views.Auth
         private void SwitchToRegister(object? sender, EventArgs e) => ShowRegister();
         private void SwitchToLogin(object? sender, EventArgs e) => ShowLogin();
 
-        
-        private void CloseAuthPage(object? sender, EventArgs e) => Close();
-        private void HideAuthPage(object? sender, EventArgs e) => Hide();
+
+        private void CloseAuthPage(object? sender, EventArgs e) => _provider.GetRequiredService<AuthMainView>().Close();
+        private void HideAuthPage(object? sender, EventArgs e) => _provider.GetRequiredService<AuthMainView>().Hide();
 
     }
 }
