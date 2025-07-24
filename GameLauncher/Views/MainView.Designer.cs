@@ -28,22 +28,42 @@ partial class MainView
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
         NavBarPanel = new Panel();
+        LogoutButton = new Button();
         LeftPanel = new Panel();
         RightPanel = new Panel();
         MiddleContentPanel = new Panel();
-        TestLabel = new Label();
-        MiddleContentPanel.SuspendLayout();
+        NavBarPanel.SuspendLayout();
         SuspendLayout();
         // 
         // NavBarPanel
         // 
         NavBarPanel.BackColor = Color.FromArgb(204, 213, 174);
+        NavBarPanel.Controls.Add(LogoutButton);
         NavBarPanel.Dock = DockStyle.Bottom;
         NavBarPanel.Location = new Point(0, 861);
         NavBarPanel.Name = "NavBarPanel";
         NavBarPanel.Size = new Size(1584, 100);
         NavBarPanel.TabIndex = 0;
+        // 
+        // LogoutButton
+        // 
+        LogoutButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        LogoutButton.AutoSize = true;
+        LogoutButton.BackColor = Color.Transparent;
+        LogoutButton.BackgroundImage = (Image)resources.GetObject("LogoutButton.BackgroundImage");
+        LogoutButton.BackgroundImageLayout = ImageLayout.Center;
+        LogoutButton.FlatAppearance.BorderSize = 0;
+        LogoutButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        LogoutButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        LogoutButton.FlatStyle = FlatStyle.Flat;
+        LogoutButton.Location = new Point(1490, 10);
+        LogoutButton.Name = "LogoutButton";
+        LogoutButton.Size = new Size(85, 85);
+        LogoutButton.TabIndex = 0;
+        LogoutButton.UseVisualStyleBackColor = false;
+        LogoutButton.Click += LogoutButton_Click;
         // 
         // LeftPanel
         // 
@@ -67,22 +87,11 @@ partial class MainView
         // 
         MiddleContentPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         MiddleContentPanel.BackColor = Color.FromArgb(254, 250, 224);
-        MiddleContentPanel.Controls.Add(TestLabel);
         MiddleContentPanel.Dock = DockStyle.Fill;
         MiddleContentPanel.Location = new Point(125, 0);
         MiddleContentPanel.Name = "MiddleContentPanel";
         MiddleContentPanel.Size = new Size(1334, 861);
         MiddleContentPanel.TabIndex = 3;
-        // 
-        // TestLabel
-        // 
-        TestLabel.AutoSize = true;
-        TestLabel.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
-        TestLabel.Location = new Point(603, 403);
-        TestLabel.Name = "TestLabel";
-        TestLabel.Size = new Size(214, 46);
-        TestLabel.TabIndex = 0;
-        TestLabel.Text = "This is a test";
         // 
         // MainView
         // 
@@ -98,8 +107,8 @@ partial class MainView
         Name = "MainView";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Form1";
-        MiddleContentPanel.ResumeLayout(false);
-        MiddleContentPanel.PerformLayout();
+        NavBarPanel.ResumeLayout(false);
+        NavBarPanel.PerformLayout();
         ResumeLayout(false);
     }
 
@@ -109,5 +118,5 @@ partial class MainView
     private Panel LeftPanel;
     private Panel RightPanel;
     private Panel MiddleContentPanel;
-    private Label TestLabel;
+    private Button LogoutButton;
 }
