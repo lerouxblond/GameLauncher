@@ -32,7 +32,7 @@ namespace GameLauncher.Services.Auth
                 if (!passwordIsCorrect)
                     return ServiceResult<Users>.Fail("Password is incorrect.");
 
-                return ServiceResult<Users>.Successful("User connected with success.");
+                return ServiceResult<Users>.Ok(user, "User connected with success.");
             }
             catch (Exception ex)
             {

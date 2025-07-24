@@ -10,7 +10,7 @@ namespace GameLauncher.Models.Utils
     {
         public int UserId { get; set; }
         public string Username { get; set; } = string.Empty;
-        public DateTime LoginTime { get; set; }
+        public DateTime LoginTime { get; set; } = DateTime.Now;
         public bool StaySignedIn { get; set; }
     }
 }

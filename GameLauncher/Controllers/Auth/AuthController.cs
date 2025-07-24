@@ -47,7 +47,8 @@ namespace GameLauncher.Controllers.Auth
                 return ServiceResult<SessionModel>.Fail(result.Message);
             }
 
-            SessionModel session;
+            _sessionService.ClearSession();
+            SessionModel session = new SessionModel { };
             if(staySignedIn)
             {
                 session = new SessionModel
@@ -57,12 +58,24 @@ namespace GameLauncher.Controllers.Auth
                     StaySignedIn = true
                 };
                 _sessionService.SaveSession(session);
-                return ServiceResult<SessionModel>.Ok(session);
+                
             }
+            if (!staySignedIn)
+            {
+
+                session = new SessionModel
+                {
+                    UserId = result.Data!.Id,
+                    Username= result.Data.Username,
+                    StaySignedIn = false
+                };
+                _sessionService.SaveSession(session);
+            }
+
 
             var home = _provider.GetRequiredService<MainView>();
             home.Show();
-            return ServiceResult<SessionModel>.Successful();
+            return ServiceResult<SessionModel>.Ok(session);
         }
 
         public ServiceResult<Users> Register(string username, string Email, string password)
