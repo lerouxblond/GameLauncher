@@ -13,15 +13,21 @@ namespace GameLauncher.Data
     {
         public AppDbContext CreateDbContext(string[] args)
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
+            IConfigurationRoot config = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json")
+            .Build();
+
+            var relativePath = config["AppSettings:DatabaseRelativePath"];
+            var absolutePath = Path.Combine(Directory.GetCurrentDirectory(), relativePath!);
+            var connectionString = $"Data Source={absolutePath}";
+
+            //Directory.CreateDirectory(Path.GetDirectoryName(absolutePath)!);
 
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlite(configuration.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseSqlite(connectionString);
 
-            return new AppDbContext(configuration);
+            return new AppDbContext(config, optionsBuilder.Options);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameLauncher.Controllers.Auth;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,15 @@ namespace GameLauncher.Views.Auth.Control
 {
     public partial class LoginControl : UserControl
     {
-        public event EventHandler? SwitchToRegister, CloseAuthPage;
+        public event EventHandler? SwitchToRegister, CloseAuthPage, UserLogged;
+        private AuthController _authController;
 
-        public LoginControl()
+        public LoginControl(AuthController authController = null!)
         {
+            _authController = authController;
             InitializeComponent();
         }
+
 
         private void RegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -28,5 +32,23 @@ namespace GameLauncher.Views.Auth.Control
         {
             CloseAuthPage?.Invoke(this, e);
         }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            var identifier = UsernameInputField.Text;
+            var password = PasswordInput.Text;
+            var stayConnected = StaySignedCheckBox.Checked;
+
+            var result = _authController.Login(identifier, password, stayConnected);
+
+            if(!result.Success)
+            {
+                MessageBox.Show(result.Message);
+                return;
+            }
+
+            UserLogged?.Invoke(this, e);
+        }
+
     }
 }

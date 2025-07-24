@@ -13,14 +13,16 @@ namespace GameLauncher.Data
     {
         private readonly IConfiguration _configuration;
 
-        public AppDbContext(IConfiguration configuration)
+        public AppDbContext(IConfiguration configuration, DbContextOptions<AppDbContext> options)
+        : base(options)
         {
             _configuration = configuration;
+            //Database.EnsureCreated(); // si tu veux créer auto la DB à chaque fois
         }
 
 
         #region Tables
-        public DbSet<User> Users { get; set; }
+        public DbSet<Users> Users { get; set; }
         public DbSet<Game> Games { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<LibraryEntry> LibraryEntries { get; set; }
@@ -29,15 +31,6 @@ namespace GameLauncher.Data
         public DbSet<GamePlatform> GamePlatforms { get; set; }
         public DbSet<GameStoreLink> GameStoreLinks { get; set; }
         #endregion
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if(!optionsBuilder.IsConfigured)
-            {
-                var connectionString = _configuration.GetConnectionString("DefaultConnection");
-                optionsBuilder.UseSqlite(connectionString);
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

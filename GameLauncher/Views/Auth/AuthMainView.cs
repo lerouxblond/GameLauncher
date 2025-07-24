@@ -1,4 +1,5 @@
-﻿using GameLauncher.Views.Auth.Control;
+﻿using GameLauncher.Controllers.Auth;
+using GameLauncher.Views.Auth.Control;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,13 @@ namespace GameLauncher.Views.Auth
 {
     public partial class AuthMainView : Form
     {
+        private readonly AuthController _authController;
 
-        public AuthMainView()
+        public AuthMainView(AuthController authController)
         {
-            InitializeComponent();
+            _authController = authController;
+            InitializeComponent(authController);
+
             InitializeFormEvents();
         }
 
@@ -26,6 +30,8 @@ namespace GameLauncher.Views.Auth
             registerControlForm.SwitchToLogin += SwitchToLogin;
             loginControlForm.CloseAuthPage += CloseAuthPage;
             registerControlForm.CloseAuthPage += CloseAuthPage;
+            registerControlForm.UserRegister += SwitchToLogin;
+            loginControlForm.UserLogged += HideAuthPage;
             ShowLogin();
         }
 
@@ -44,7 +50,9 @@ namespace GameLauncher.Views.Auth
         private void SwitchToRegister(object? sender, EventArgs e) => ShowRegister();
         private void SwitchToLogin(object? sender, EventArgs e) => ShowLogin();
 
-        private void CloseAuthPage(object? sender, EventArgs e) => this.Close();
+        
+        private void CloseAuthPage(object? sender, EventArgs e) => Close();
+        private void HideAuthPage(object? sender, EventArgs e) => Hide();
 
     }
 }

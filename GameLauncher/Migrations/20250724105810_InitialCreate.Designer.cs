@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameLauncher.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250710125117_InitialCreate")]
+    [Migration("20250724105810_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.6");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.7");
 
             modelBuilder.Entity("GameLauncher.Models.Game", b =>
                 {
@@ -197,7 +197,7 @@ namespace GameLauncher.Migrations
                     b.ToTable("Platforms");
                 });
 
-            modelBuilder.Entity("GameLauncher.Models.User", b =>
+            modelBuilder.Entity("GameLauncher.Models.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -285,7 +285,7 @@ namespace GameLauncher.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GameLauncher.Models.User", "User")
+                    b.HasOne("GameLauncher.Models.Users", "User")
                         .WithMany("LibraryEntries")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -310,7 +310,7 @@ namespace GameLauncher.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GameLauncher.Models.User", "User")
+                    b.HasOne("GameLauncher.Models.Users", "User")
                         .WithMany("Notes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -349,7 +349,7 @@ namespace GameLauncher.Migrations
                     b.Navigation("GamePlatforms");
                 });
 
-            modelBuilder.Entity("GameLauncher.Models.User", b =>
+            modelBuilder.Entity("GameLauncher.Models.Users", b =>
                 {
                     b.Navigation("LibraryEntries");
 

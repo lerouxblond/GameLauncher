@@ -242,6 +242,7 @@
             LoginButton.TabIndex = 4;
             LoginButton.Text = "LOGIN";
             LoginButton.UseVisualStyleBackColor = false;
+            LoginButton.Click += LoginButton_Click;
             // 
             // RegisterLink
             // 

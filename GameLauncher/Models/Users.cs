@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameLauncher.Models
 {
-    public class User
+    public class Users
     {
         #region User Properties
         // Primary Key for db purpose
@@ -32,10 +32,10 @@ namespace GameLauncher.Models
 
         #endregion
         // Empty Constructor
-        public User() { }
+        public Users() { }
 
         // Register Constructor for DB insertion and Register Auth
-        public User(string username, string email, string password, bool adminPermission = false)
+        public Users(string username, string email, string password, bool adminPermission = false)
         {
             Username = username;
             Email = email;
